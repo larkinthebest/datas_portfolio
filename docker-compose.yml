@@ -87,6 +87,7 @@ services:
         condition: service_healthy
     volumes:
       - ./credentials:/run/secrets:ro
+      - ./credentials/google-oauth-token.json:/run/secrets/google-oauth-token.json
       - model_cache:/home/app/.cache
   ocr-worker:
     profiles: ["ocr"]
@@ -101,6 +102,7 @@ services:
         condition: service_healthy
     volumes:
       - ./credentials:/run/secrets:ro
+      - ./credentials/google-oauth-token.json:/run/secrets/google-oauth-token.json
       - model_cache:/home/app/.cache
 
 volumes:
