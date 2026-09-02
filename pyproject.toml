@@ -80,7 +80,7 @@ plugins = ["pydantic.mypy"]
 exclude = ["alembic"]
 
 [[tool.mypy.overrides]]
-module = ["celery.*", "fitz.*", "googleapiclient.*", "pinecone.*", "sentence_transformers.*", "pytesseract.*"]
+module = ["celery.*", "fitz.*", "googleapiclient.*", "PIL.*", "pinecone.*", "sentence_transformers.*", "pytesseract.*"]
 ignore_missing_imports = true
 
 [tool.coverage.run]
