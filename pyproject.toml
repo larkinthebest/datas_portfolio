@@ -1,0 +1,92 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gdrive-rag-accounting-bot"
+version = "0.1.0"
+description = "Evidence-first Telegram RAG system for German financial documents"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "aiogram>=3.22,<4",
+  "alembic>=1.16,<2",
+  "asyncpg>=0.30,<1",
+  "celery[redis]>=5.5,<6",
+  "fastapi>=0.116,<1",
+  "google-api-python-client>=2.179,<3",
+  "google-auth>=2.40,<3",
+  "google-auth-oauthlib>=1.2,<2",
+  "google-genai>=1.30,<2",
+  "httpx>=0.28,<1",
+  "openpyxl>=3.1,<4",
+  "pinecone>=7,<9",
+  "prometheus-client>=0.22,<1",
+  "pydantic>=2.11,<3",
+  "pydantic-settings>=2.10,<3",
+  "PyMuPDF>=1.26,<2",
+  "python-docx>=1.2,<2",
+  "python-multipart>=0.0.20,<1",
+  "SQLAlchemy[asyncio]>=2.0.43,<3",
+  "structlog>=25.4,<26",
+  "tenacity>=9.1,<10",
+  "uvicorn[standard]>=0.35,<1",
+]
+
+[project.optional-dependencies]
+embeddings = ["sentence-transformers>=5.1,<6"]
+ocr = ["pytesseract>=0.3.13,<1", "Pillow>=11.3,<12"]
+dev = [
+  "aiosqlite>=0.21,<1",
+  "mypy>=1.17,<2",
+  "pytest>=8.4,<9",
+  "pytest-asyncio>=1.1,<2",
+  "pytest-cov>=6.2,<8",
+  "ruff>=0.12,<1",
+  "types-python-dateutil>=2.9,<3",
+  "types-openpyxl>=3.1,<4",
+]
+
+[project.scripts]
+ragbot = "app.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers --cov=app/domain --cov=app/parsers --cov=app/rag --cov-report=term-missing"
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = ["external: tests requiring real external APIs"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC", "S", "RUF"]
+ignore = ["E501", "RUF001", "S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"alembic/versions/*.py" = ["E501"]
+"app/api/**/*.py" = ["B008"]
+"tests/**/*.py" = ["S101", "S105", "S106"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unreachable = true
+plugins = ["pydantic.mypy"]
+exclude = ["alembic"]
+
+[[tool.mypy.overrides]]
+module = ["celery.*", "fitz.*", "googleapiclient.*", "pinecone.*", "sentence_transformers.*", "pytesseract.*"]
+ignore_missing_imports = true
+
+[tool.coverage.run]
+branch = true
+source = ["app"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 0

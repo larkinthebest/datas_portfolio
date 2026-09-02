@@ -1,0 +1,10 @@
+{"id":"heizkosten","category":"Heizkosten","query":"Сколько составили расходы на отопление за 2025 год?","relevant_id":"d1","documents":[{"id":"d1","text":"Die Heizkosten für den Abrechnungszeitraum 01.01.2025 bis 31.12.2025 betragen 940,00 €."},{"id":"x1","text":"Versicherungsvertrag 2024"}]}
+{"id":"betriebskosten","category":"Betriebskosten","query":"Какие коммунальные расходы были в 2025?","relevant_id":"d2","documents":[{"id":"d2","text":"Betriebskostenabrechnung 2025: Ihr Anteil beträgt 1.248,70 €."},{"id":"x2","text":"Darlehen und Tilgung"}]}
+{"id":"grundsteuer","category":"Grundsteuer","query":"Найди налог на недвижимость","relevant_id":"d3","documents":[{"id":"d3","text":"Grundsteuerbescheid des Finanzamts für 2025."},{"id":"x3","text":"Mietvertrag"}]}
+{"id":"darlehen","category":"Darlehenszinsen","query":"Сколько процентов по кредиту?","relevant_id":"d4","documents":[{"id":"d4","text":"Darlehenszinsen und Tilgung im Kontoauszug."},{"id":"x4","text":"Wasserkosten"}]}
+{"id":"miete","category":"Miete","query":"Какие доходы от аренды?","relevant_id":"d5","documents":[{"id":"d5","text":"Mieteinnahmen Januar bis Dezember."},{"id":"x5","text":"Steuerbescheid"}]}
+{"id":"versicherung","category":"Versicherung","query":"Найди расходы на страховку","relevant_id":"d6","documents":[{"id":"d6","text":"Versicherungsbeitrag Gebäudeversicherung 2025."},{"id":"x6","text":"Rechnung Heizung"}]}
+{"id":"rechnung","category":"Rechnung","query":"Найди счет RE-2025-17","relevant_id":"d7","documents":[{"id":"d7","text":"Rechnung RE-2025-17 Gesamtbetrag 1.250,00 EUR."},{"id":"x7","text":"Kontoauszug"}]}
+{"id":"finanzamt","category":"Finanzamt","query":"Какие документы прислала налоговая?","relevant_id":"d8","documents":[{"id":"d8","text":"Schreiben vom Finanzamt Charlottenburg."},{"id":"x8","text":"Versicherung"}]}
+{"id":"transaction","category":"Bank transaction","query":"Найди операцию TEST123","relevant_id":"d9","documents":[{"id":"d9","text":"Lastschrift 299,85- End-to-End-Ref. TEST123"},{"id":"x9","text":"Andere Buchung"}]}
+
